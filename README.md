@@ -7,4 +7,4 @@ set these 2 env vars:
 
 Run the app
 
-`npm run start`
+`npm i && npm run start`
