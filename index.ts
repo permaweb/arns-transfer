@@ -6,7 +6,7 @@ import {
   LoggerFactory,
 } from 'warp-contracts';
 
-const ANT = 'TPvRqEeSctYC50c5mfP51nsbpGaCARtYO1fHyBZNLGE';
+const ANT = process.env.ANT;
 const KEYFILE_PATH = process.env.PATH_TO_WALLET;
 const TARGET = process.env.ARNS_TARGET;
 
