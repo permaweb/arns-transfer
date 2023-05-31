@@ -10,6 +10,10 @@ const ANT = process.env.ANT;
 const KEYFILE_PATH = process.env.PATH_TO_WALLET;
 const TARGET = process.env.ARNS_TARGET;
 
+if (!ANT || !KEYFILE_PATH || !TARGET) {
+  console.log('Make sure you set all the env vars.');
+  process.exit(1);
+}
 (async function () {
   LoggerFactory.INST.logLevel('error');
 
@@ -24,7 +28,7 @@ const TARGET = process.env.ARNS_TARGET;
   const ownersWallet = JSON.parse(
     fs.readFileSync(KEYFILE_PATH || '').toString()
   );
-  const pst = warp.pst(ANT);
+  const pst = warp.pst(ANT || '');
   pst.connect(ownersWallet);
   const interaction = await pst.transfer(
     {
